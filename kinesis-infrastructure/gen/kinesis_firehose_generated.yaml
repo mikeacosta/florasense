@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Kinesis Firehose for sensor network data
+Resources:
+  DeliveryStream:
+    Type: AWS::KinesisFirehose::DeliveryStream
+    Properties:
+      DeliveryStreamName: sensor-network-firehose
+      DeliveryStreamType: KinesisStreamAsSource
+      KinesisStreamSourceConfiguration:
+        KinesisStreamARN:
+          Fn::ImportValue: SensorNetworkStreamArn
+        RoleARN:
+          Fn::Sub: arn:aws:iam::489967615225:role/stream-processing-role
+      S3DestinationConfiguration:
+        CloudWatchLoggingOptions:
+          Enabled: true
+          LogGroupName: SensorNetworkData
+          LogStreamName: S3Delivery
+        BucketARN:
+          Fn::Sub: arn:aws:s3:::real-time-sensors
+        BufferingHints:
+          IntervalInSeconds: 300
+          SizeInMBs: 5
+        CompressionFormat: UNCOMPRESSED
+        RoleARN:
+          Fn::Sub: arn:aws:iam::489967615225:role/stream-processing-role
