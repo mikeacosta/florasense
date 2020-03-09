@@ -17,7 +17,6 @@ import io.florasense.streams.models.SensorDataProps;
 import io.florasense.streams.utils.SensorHelper;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Collections;
 
 public class StreamSubscriber {
