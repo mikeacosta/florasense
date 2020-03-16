@@ -10,7 +10,7 @@ public class SensorHelper {
         JsonObject jsonObject = element.getAsJsonObject();
 
         String sensorUuid = jsonObject.get("sensor_uuid").toString().replaceAll("\"", "");
-        int sensorNo = getSensorNumber(1, 111);
+        int sensorNo = getSensorNumber(1, 134);
 
         jsonObject.addProperty("sensor_number", sensorNo);
         jsonObject.addProperty("reading_id", getReadingId(sensorUuid, sensorNo));
