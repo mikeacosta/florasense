@@ -88,7 +88,7 @@ The high-level steps to meet the analysts' requirements are:
 
 Sequential execution of various workflow components is coordinated using [AWS Step Functions](https://aws.amazon.com/step-functions/).
 
-The code to perform each workflow step is deployed as a [Lambda funcion](https://aws.amazon.com/lambda/), and the Step Functions [State Machine](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-state-machine-structure.html) for this workflow executes each Lambda function in a designated order.
+The code to perform each workflow step is deployed as a [Lambda function](https://aws.amazon.com/lambda/), and the Step Functions [State Machine](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-state-machine-structure.html) for this workflow executes each Lambda function in a designated order.
 
 An exception to this is the Spark workload.  Step Functions supports EMR integration, including the ability to instruct a cluster to perform a unit of work, such as a Spark job in this case. 
 
